@@ -1,0 +1,61 @@
+<?php
+
+use App\Http\Controllers\Api\PokemonCardController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\UserController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+// Crée un lien qui permettra aux clients de se connecter  que ce sois avec : React , Angullar , Node ...
+
+//Ajouter un post   GET / POST / PUT / DELETE
+
+
+
+// Limite de débit spécifique pour l'inscription et la connexion
+Route::middleware('throttle:10,1')->group(function () {
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/login', [UserController::class, 'login']);
+});
+
+// Limite de débit pour la récupération des posts
+Route::middleware('throttle:60,1')->group(function () {
+    Route::get('posts', [PostController::class, 'index']);
+});
+
+
+Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
+
+    // Ajouter une carte à la collection d'un utilisateur
+    Route::post('/user/add-card/{pokemonCard}', [PokemonCardController::class, 'addCardToUser']);
+
+    // Supprimer une carte de la collection d'un utilisateur
+    //A revoir pour la suppression de la carte
+    Route::delete('/user/remove-card/{pokemonCard}', [PokemonCardController::class, 'removeCardFromUser']);
+
+
+    //Modifier un post 
+    Route::put('posts/edit/{post}', [PostController::class, 'update']);
+
+    // Ajouter un  post 
+    Route::post('posts/create' , [PostController::class , 'store']);
+
+    //supprimer un post
+    Route::delete('posts/{post}', [PostController::class, 'delete']);
+
+    //retourne les infos de l'utilisateur connecté .
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+});
