@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LogUserRequest;
 use App\Http\Requests\RegisterUser;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 //use App\Models\PokemonCard;
@@ -64,6 +64,50 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function assignRole(Request $request, User $user)
+{
+    $roleName = $request->input('role'); 
+    $user->assignRole($roleName);
+
+    return response()->json([
+        'message' => "Role '{$roleName}' assigned successfully to user {$user->email}"
+    ]);
+}
+
+
+public function deleteRole(Request $request, User $user)
+{
+    // Assurez-vous que l'utilisateur connecté a le rôle 'supermodo'
+    if (!auth()->user()->hasRole('super modo')) {
+        return response()->json([
+            'status_code' => 403,
+            'message' => "Action non autorisée. Vous devez avoir le rôle de supermodo pour effectuer cette action.",
+        ], 403);
+    }
+
+    // Vérifiez si l'utilisateur à modifier a le rôle spécifié
+    $roleName = $request->input('role');
+    if (!$roleName) {
+        return response()->json([
+            'status_code' => 400,
+            'message' => 'Aucun rôle spécifié dans la requête.',
+        ], 400);
+    }
+
+    if ($user->hasRole($roleName)) {
+        $user->removeRole($roleName); // Retirer le rôle spécifié
+        return response()->json([
+            'status_code' => 200,
+            'message' => "Rôle '{$roleName}' retiré avec succès de l'utilisateur {$user->email}.",
+        ], 200);
+    } else {
+        return response()->json([
+            'status_code' => 404,
+            'message' => "L'utilisateur spécifié n'a pas le rôle '{$roleName}'. Vérifiez si le rôle est correctement attribué à cet utilisateur.",
+        ], 404);
+    }
+}
 
     // Méthode pour ajouter une carte à la collection de l'utilisateur
     // public function addCardToCollection(Request $request)

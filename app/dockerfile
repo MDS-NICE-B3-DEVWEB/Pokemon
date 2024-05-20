@@ -1,4 +1,4 @@
- FROM node:20.11
+FROM node:20.11
 
 # Définition du répertoire de travail
 
@@ -17,4 +17,4 @@ EXPOSE 3000
 
 # Commande pour lancer le serveur
 # CMD ["npm", "install" ,"&&","npm", "start"]
-CMD npm install && npm start 
+CMD npm install next@latest react@latest react-dom@latest && npm install && npm run dev

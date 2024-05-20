@@ -5,7 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\CollectionController;
 
+// Vos routes...
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,10 +31,44 @@ Route::middleware('throttle:10,1')->group(function () {
     Route::post('/login', [UserController::class, 'login']);
 });
 
-// Limite de débit pour la récupération des posts
-Route::middleware('throttle:60,1')->group(function () {
+Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
+    // Limite de débit pour la récupération des posts
     Route::get('posts', [PostController::class, 'index']);
+
+    // Modifier un post 
+    Route::put('posts/edit/{post}', [PostController::class, 'update']);
+
+    // Ajouter un post 
+    Route::post('posts/create' , [PostController::class , 'store']);
+
+    // Supprimer un post
+    Route::delete('posts/{post}', [PostController::class, 'delete']);
 });
+
+
+// Groupe de routes protégées par le middleware d'authentification Sanctum
+Route::middleware('auth:sanctum')->group(function () {
+    // Route pour voir la collection de l'utilisateur
+    Route::get('/collections', [CollectionController::class, 'index']);
+
+    // Route pour ajouter une carte à la collection de l'utilisateur
+    Route::post('/collections/add', [CollectionController::class, 'addToCollection']);
+    
+    // Route pour supprimer une carte spécifique de la collection de l'utilisateur
+    Route::delete('/collections/{id}', [CollectionController::class, 'destroy']);
+});
+
+
+
+// Route pour gérer les roles et permissions
+Route::post('/users/{user}/assign-role', [UserController::class, 'assignRole'])
+    ->middleware(['auth:sanctum', 'role:super modo']);
+
+Route::delete('/users/{user}/remove-role', [UserController::class, 'deleteRole'])
+    ->middleware(['auth:sanctum', 'role:super modo']);
+
+
+
 
 
 Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
@@ -44,15 +80,6 @@ Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
     //A revoir pour la suppression de la carte
     Route::delete('/user/remove-card/{pokemonCard}', [PokemonCardController::class, 'removeCardFromUser']);
 
-
-    //Modifier un post 
-    Route::put('posts/edit/{post}', [PostController::class, 'update']);
-
-    // Ajouter un  post 
-    Route::post('posts/create' , [PostController::class , 'store']);
-
-    //supprimer un post
-    Route::delete('posts/{post}', [PostController::class, 'delete']);
 
     //retourne les infos de l'utilisateur connecté .
     Route::get('/user', function (Request $request) {
