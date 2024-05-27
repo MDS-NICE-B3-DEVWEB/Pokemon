@@ -32,8 +32,49 @@ body {
   }
 }
 
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  color: black;
+}
 
 
+.inset-y-center {
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.relative .cursor-pointer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: gray;
+  top: 20px;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 550px; /* Limite la largeur maximale des vidéos */
+  margin: auto; 
+  top :50px;
+}
+.video-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
 
 :root {
   --color1: rgb(0, 231, 255);
@@ -54,6 +95,18 @@ body {
   --levia1: #748288;
   --levia2: #2D3E43;
   --leviafront: url(https://images.pokemontcg.io/ex7/36.png);
+  --licence1: #efb2fb;
+  --licence2: #acc6f8;
+  --licence1front: url(https://www.lillojeux.ca/wp-content/uploads/2023/08/disney-lorcana-booster-jeu-VA.jpg);
+  --licence3: #748288;
+  --licence4: #2D3E43;
+  --licence2front: url(https://toysonejapan.com/cdn/shop/files/a2_46d080bf-cb03-42e9-94e4-e914971017fc_348x700.jpg?v=1707979106);
+  --licence5: #748288;
+  --licence6: #2D3E43;
+  --licence3front: url(https://www.antretemps.com/upload/image/mtg---le-seigneur-des-anneaux---booster-collector--fr--p-image-49147-grande.png);
+  --licence7: #748288;
+  --licence8: #2D3E43;
+  --licence4front: url(https://www.cards-capital.com/85384/booster-heritage-de-la-destruction.jpg);
 }
 
 .card {
@@ -125,6 +178,28 @@ body {
   --color1: var(--levia1);
   --color2: var(--levia2);
   --front: var(--leviafront);
+}
+
+.card.licence {
+  --color1: var(--licence1);
+  --color2: var(--licence2);
+  --front: var(--licence1front);
+}
+
+.card.licence1 {
+  --color1: var(--licence3);
+  --color2: var(--licence4);
+  --front: var(--licence2front);
+}
+.card.licence2 {
+  --color1: var(--licence5);
+  --color2: var(--licence6);
+  --front: var(--licence3front);
+}
+.card.licence3 {
+  --color1: var(--licence7);
+  --color2: var(--licence8);
+  --front: var(--licence4front);
 }
 
 .card:before,

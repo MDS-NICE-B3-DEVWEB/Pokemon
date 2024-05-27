@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import RootLayout from "@/app/layout";
@@ -118,22 +117,48 @@ export default function Home() {
               <div className="card pika animated"></div>
               <div className="card eevee animated"></div>
               <div className="card mewtwo animated"></div>
-              <div className="card levia animated"></div> {/* Nouvelle carte ajoutée */}
-              <div className="card newcard2 animated"></div> {/* Nouvelle carte ajoutée */}
-              {/* Ajoutez d'autres cartes ici */}
+              <div className="card levia animated"></div>
+              <div className="card newcard1 animated"></div>
+              <div className="card newcard2 animated"></div>
+              <div className="card newcard3 animated"></div>
             </div>
           </section>
 
-          <section className="py-16 text-center text-white">
-            <h2 className="text-3xl font-bold">Visualisez nos cartes !</h2>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
-              <div className="card charizard animated"></div>
-              <div className="card pika animated"></div>
-              <div className="card eevee animated"></div>
-              <div className="card mewtwo animated"></div>
-              <div className="card newcard1 animated"></div> {/* Nouvelle carte ajoutée */}
-              <div className="card newcard2 animated"></div> {/* Nouvelle carte ajoutée */}
-              {/* Ajoutez d'autres cartes ici */}
+          <section className="py-16 text-white">
+            <div className="container mx-auto flex flex-wrap items-center justify-center">
+              <div className="w-full md:w-1/2 p-4 flex justify-center">
+                <div className="card levia animated"></div>
+              </div>
+              <div className="w-full md:w-1/2 p-4 flex justify-center text-center md:text-left">
+                <div>
+                  <h3 className="text-2xl font-bold">Fonctionnalité 1</h3>
+                  <p className="mt-4 text-lg">
+                  Fonctionalité 2
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-16 text-white">
+            <div className="container mx-auto flex flex-wrap items-center justify-center">
+              <div className="w-full md:w-1/2 p-4 flex justify-center text-center md:text-left order-2 md:order-1">
+                <div>
+                  <h3 className="text-2xl font-bold ">Fonctionnalité 2</h3>
+                  <p className="mt-4 text-lg">
+                      Fonctionalité 2
+                  </p>
+                  <p className="mt-4 text-lg">
+                  Fonctionalité 2
+                  </p>
+                  <p className="mt-4 text-lg">
+                  Fonctionalité 2
+                  </p>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 p-4 flex justify-center order-1 md:order-2">
+                <div className="card levia animated"></div>
+              </div>
             </div>
           </section>
 
@@ -148,20 +173,17 @@ export default function Home() {
           </section>
 
           <section className="py-16 text-center text-white">
-            <h2 className="text-3xl font-bold">Et plein d'autres licences !</h2>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
-              <div className="card">
-                <Image src="/path-to-license1.jpg" alt="License 1" width={300} height={400} className="rounded-lg" />
+            <h2 className="text-3xl font-bold">Nos Futur licences !</h2>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8 ">
+              <div>
+              <div className="card licence animated"></div>
+              </div><div>
+              <div className="card licence1 animated"></div>
               </div>
-              <div className="card">
-                <Image src="/path-to-license2.jpg" alt="License 2" width={300} height={400} className="rounded-lg" />
+              <div className="card licence2 animated"><div>
               </div>
-              <div className="card">
-                <Image src="/path-to-license3.jpg" alt="License 3" width={300} height={400} className="rounded-lg" />
               </div>
-              <div className="card">
-                <Image src="/path-to-license4.jpg" alt="License 4" width={300} height={400} className="rounded-lg" />
-              </div>
+                <div className="card licence3 animated"></div>
             </div>
           </section>
 
@@ -174,22 +196,50 @@ export default function Home() {
               </Link>
             </div>
           </section>
+
+          <section className="py-16 text-center text-white">
+            <h2 className="text-3xl font-bold">Comment ça marche ?</h2>
+            <p className="mt-4 text-lg max-w-2xl mx-auto">
+              Kollector's est votre compagnon idéal pour gérer vos collections de cartes. Scannez vos cartes, ajoutez-les à votre collection, et découvrez les cartes rares que vous n'avez pas encore. Utilisez notre application pour organiser vos collections, échanger des cartes avec d'autres collectionneurs et rester à jour avec les dernières sorties et événements.
+            </p>
+            <div className="mt-8">
+              <Link href="/learn-more" className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 text-white">
+                En savoir plus
+              </Link>
+            </div>
+          </section>
+          
+          <section className="py-16 text-center text-white">
+            <h2 className="text-3xl font-bold">Vidéos de Présentation</h2>
+            <div className="video-grid px-4">
+              <div className="w-full p-4">
+                <div className="video-container">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/FQfBwSxqhVo"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              <div className="w-full p-4">
+                <div className="video-container">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/v-blzL0Q1oA"
+                    title="YouTube video player"                
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </ClientLayout>
     </RootLayout>
-  );
-}
-
-function SVGScroll() {
-  return (
-    <div>
-      <svg viewBox="0 0 330 330" className="mx-auto">
-        <g>
-          <path d="M304.394,139.394l-139.39,139.393L25.607,139.393c-5.857-5.857-15.355-5.858-21.213,0.001   c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393s7.794-1.581,10.606-4.394l149.996-150   c5.858-5.858,5.858-15.355,0-21.213C319.749,133.536,310.251,133.535,304.394,139.394z" />
-          <path d="M154.398,190.607c2.813,2.813,6.628,4.393,10.606,4.393s7.794-1.581,10.606-4.394l149.996-150   c5.858-5.858,5.858-15.355,0-21.213c-5.857-5.858-15.355-5.858-21.213,0l-139.39,139.393L25.607,19.393   c-5.857-5.858-15.355-5.858-21.213,0c-5.858,5.858-5.858,15.355,0,21.213L154.398,190.607z" />
-        </g>
-      </svg>
-      <p className="scroll">Scroll 4 moar!</p>
-    </div>
   );
 }
