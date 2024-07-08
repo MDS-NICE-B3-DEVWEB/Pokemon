@@ -37,7 +37,7 @@ class PostController extends Controller
                 'current_page' => $page,
                 'last_page' => ceil($total / $perPage),
                 'items' => $result
-            ]);
+            ],200);
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 500);
         }
@@ -49,7 +49,7 @@ class PostController extends Controller
         return response()->json([
             'status_code' => 401,
             'status_message' => 'Non autorisé : Vous devez être connecté pour créer un post',
-        ]);
+        ], 401);
     }
 
     try {
@@ -63,10 +63,10 @@ class PostController extends Controller
         $post->save();
 
         return response()->json([
-            'status_code' => 200,
+            'status_code' => 201,
             'status_message' => 'Le post a été ajouté',
             'data' => $post
-        ]);
+        ], 201);
     } catch (Exception $e) {
         return response()->json($e->getMessage(), 500);
     }
@@ -82,15 +82,15 @@ class PostController extends Controller
                 ]);
 
                 return response()->json([
-                    'status_code' => 200,
+                    'status_code' => 201,
                     'status_message' => 'Le post a été modifié',
                     'data' => $post
-                ]);
+                ], 201);
             } else {
                 return response()->json([
                     'status_code' => 403,
                     'status_message' => 'Vous n\'avez pas le droit de modifier ce post',
-                ]);
+                ], 403);
             }
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 500);
@@ -104,14 +104,14 @@ class PostController extends Controller
                 $post->delete();
 
                 return response()->json([
-                    'status_code' => 200,
+                    'status_code' => 201,
                     'status_message' => 'Le post a été supprimé',
-                ]);
+                ], 201);
             } else {
                 return response()->json([
                     'status_code' => 403,
                     'status_message' => 'Vous n\'êtes pas l\'auteur de ce post et ne pouvez pas le supprimer',
-                ]);
+                ], 403);
             }
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 500);

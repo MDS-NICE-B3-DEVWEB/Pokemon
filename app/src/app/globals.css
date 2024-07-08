@@ -24,6 +24,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    max-width: 100% ! important;
+    overflow-x: hidden ! important;/* Empêche le défilement horizontal */
 }
 
 @layer utilities {
@@ -76,9 +78,25 @@ input[type="text"] {
   gap: 20px;
 }
 
+.text-hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+
 :root {
-  --color1: rgb(0, 231, 255);
-  --color2: rgb(255, 0, 231);
+  /*--color1: rgb(241, 241, 241);
+  --color2: rgb(255, 0, 231);*/
   --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
   --charizard1: #fac;
   --charizard2: #ddccaa;
@@ -94,7 +112,24 @@ input[type="text"] {
   --mewtwofront: url(https://assets.codepen.io/13471/mewtwo-gx.webp);
   --levia1: #748288;
   --levia2: #2D3E43;
-  --leviafront: url(https://images.pokemontcg.io/ex7/36.png);
+  --leviafront: url(https://images.pokemontcg.io/smp/SM193_hires.png);
+  --tortank1: #1dc3da;
+  --tortank2: #c3cfd3;
+  --tortankfront: url(https://images.pokemontcg.io/sm12/38.png);
+  --flori1: #57c98a;
+  --flori2: #c2cc35;
+  --flori3: #1dc3da;
+  --florifront: url(https://images.pokemontcg.io/sm9/1_hires.png);
+  --deoxys1: #ca72db;
+  --deoxys2: #e46b33;
+  --deoxys3: #d5e97f;
+  --deoxysfront: url(https://images.pokemontcg.io/sm11/72_hires.png);
+  --fonctionali1: #dde6e7;
+  --fonctionali2: #c3cfd3;
+  --fonctionalifront: url(https://i.ibb.co/0CmY94L/Fonctionalit-1.jpg);
+  --fonctionali3: #dde6e7;
+  --fonctionali4: #c3cfd3;
+  --fonctionali1front: url(https://i.ibb.co/MR9SNsb/Fonctionalit-2.jpg);
   --licence1: #efb2fb;
   --licence2: #acc6f8;
   --licence1front: url(https://www.lillojeux.ca/wp-content/uploads/2023/08/disney-lorcana-booster-jeu-VA.jpg);
@@ -179,6 +214,38 @@ input[type="text"] {
   --color2: var(--levia2);
   --front: var(--leviafront);
 }
+
+.card.tortank {
+  --color1: var(--tortank1);
+  --color2: var(--tortank2);
+  --front: var(--tortankfront);
+}
+
+.card.flori {
+  --color1: var(--flori1);
+  --color2: var(--flori2);
+  --color3: var(--flori3);
+  --front: var(--florifront);
+}
+
+.card.deoxys {
+  --color1: var(--deoxys1);
+  --color2: var(--deoxys2);
+  --color3: var(--deoxys3);
+  --front: var(--deoxysfront);
+}
+.card.fonctionali {
+  --color1: var(--fonctionali1);
+  --color2: var(--fonctionali2);
+  --front: var(--fonctionalifront);
+}
+
+.card.fonctionali1 {
+  --color1: var(--fonctionali3);
+  --color2: var(--fonctionali4);
+  --front: var(--fonctionali1front);
+}
+
 
 .card.licence {
   --color1: var(--licence1);

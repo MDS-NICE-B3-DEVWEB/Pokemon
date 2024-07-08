@@ -69,8 +69,6 @@ Route::delete('/users/{user}/remove-role', [UserController::class, 'deleteRole']
 
 
 
-
-
 Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
 
     // Ajouter une carte à la collection d'un utilisateur

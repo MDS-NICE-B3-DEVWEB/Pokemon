@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import RootLayout from "@/app/layout";
 import ClientLayout from "@/components/ClientLay";
@@ -99,11 +98,11 @@ export default function Home() {
               Votre destination ultime pour tout ce qui concerne les cartes ! Que vous soyez un collectionneur passionné ou un nouvel adepte, notre plateforme complète vous propose une expérience immersive.
             </p>
             <div className="mt-8 flex space-x-4">
-              <Link href="/download" className="px-6 py-3 bg-red-600 rounded hover:bg-red-700 text-white">
-                Download
+              <Link href="/construction" className="px-6 py-3 bg-red-600 rounded hover:bg-red-700 text-white">
+              Télécharger
               </Link>
-              <Link href="/learn-more" className="px-6 py-3 border border-black rounded hover:bg-black hover:text-white">
-                Learn more
+              <Link href="/construction" className="px-6 py-3 border border-black rounded hover:bg-black hover:text-white">
+               En savoir plus 
               </Link>
             </div>
           </div>
@@ -112,88 +111,31 @@ export default function Home() {
         <div className="bg-[#171925]">
           <section className="py-16 text-center text-white">
             <h2 className="text-3xl font-bold">Découvrez nos cartes !</h2>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
-              <div className="card charizard animated"></div>
-              <div className="card pika animated"></div>
-              <div className="card eevee animated"></div>
-              <div className="card mewtwo animated"></div>
-              <div className="card levia animated"></div>
-              <div className="card newcard1 animated"></div>
-              <div className="card newcard2 animated"></div>
-              <div className="card newcard3 animated"></div>
-            </div>
-          </section>
-
-          <section className="py-16 text-white">
-            <div className="container mx-auto flex flex-wrap items-center justify-center">
-              <div className="w-full md:w-1/2 p-4 flex justify-center">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
+              <div className="flex justify-center">
+                <div className="card charizard animated"></div>
+              </div>
+              <div className="flex justify-center">
+                <div className="card pika animated"></div>
+              </div>
+              <div className="flex justify-center">
+                <div className="card eevee animated"></div>
+              </div>
+              <div className="flex justify-center">
+                <div className="card mewtwo animated"></div>
+              </div>
+              <div className="flex justify-center">
                 <div className="card levia animated"></div>
               </div>
-              <div className="w-full md:w-1/2 p-4 flex justify-center text-center md:text-left">
-                <div>
-                  <h3 className="text-2xl font-bold">Fonctionnalité 1</h3>
-                  <p className="mt-4 text-lg">
-                  Fonctionalité 2
-                  </p>
-                </div>
+              <div className="flex justify-center">
+                <div className="card tortank animated"></div>
               </div>
-            </div>
-          </section>
-
-          <section className="py-16 text-white">
-            <div className="container mx-auto flex flex-wrap items-center justify-center">
-              <div className="w-full md:w-1/2 p-4 flex justify-center text-center md:text-left order-2 md:order-1">
-                <div>
-                  <h3 className="text-2xl font-bold ">Fonctionnalité 2</h3>
-                  <p className="mt-4 text-lg">
-                      Fonctionalité 2
-                  </p>
-                  <p className="mt-4 text-lg">
-                  Fonctionalité 2
-                  </p>
-                  <p className="mt-4 text-lg">
-                  Fonctionalité 2
-                  </p>
-                </div>
+              <div className="flex justify-center">
+                <div className="card flori animated"></div>
               </div>
-              <div className="w-full md:w-1/2 p-4 flex justify-center order-1 md:order-2">
-                <div className="card levia animated"></div>
+              <div className="flex justify-center">
+                <div className="card deoxys animated"></div>
               </div>
-            </div>
-          </section>
-
-          <section className="py-16 text-center text-white">
-            <h2 className="text-3xl font-bold">Votre collection à vous !</h2>
-            <p className="mt-4 text-lg">Gérez, visualisez et admirez votre collection de cartes Pokémon avec facilité.</p>
-            <div className="mt-8">
-              <Link href="/collections" className="px-4 py-2 bg-green-600 rounded hover:bg-green-700 text-white">
-                Explorez maintenant
-              </Link>
-            </div>
-          </section>
-
-          <section className="py-16 text-center text-white">
-            <h2 className="text-3xl font-bold">Nos Futur licences !</h2>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8 ">
-              <div>
-              <div className="card licence animated"></div>
-              </div><div>
-              <div className="card licence1 animated"></div>
-              </div>
-              <div className="card licence2 animated"><div>
-              </div>
-              </div>
-                <div className="card licence3 animated"></div>
-            </div>
-          </section>
-
-          <section className="py-16 text-center text-white">
-            <h2 className="text-3xl font-bold">Télécharger notre application !</h2>
-            <p className="mt-4 text-lg">Gérez votre collection de cartes Pokémon où que vous soyez.</p>
-            <div className="mt-8">
-              <Link href="/download" className="px-4 py-2 bg-red-600 rounded hover:bg-red-700 text-white">
-                Télécharger
-              </Link>
             </div>
           </section>
 
@@ -203,12 +145,82 @@ export default function Home() {
               Kollector's est votre compagnon idéal pour gérer vos collections de cartes. Scannez vos cartes, ajoutez-les à votre collection, et découvrez les cartes rares que vous n'avez pas encore. Utilisez notre application pour organiser vos collections, échanger des cartes avec d'autres collectionneurs et rester à jour avec les dernières sorties et événements.
             </p>
             <div className="mt-8">
-              <Link href="/learn-more" className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 text-white">
+              <Link href="/construction" className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 text-white">
                 En savoir plus
               </Link>
             </div>
           </section>
-          
+
+          <section className="py-16 text-white bg-[#171925]">
+  <div className="container mx-auto flex flex-wrap items-center justify-center space-y-8">
+    <div className="w-full md:w-1/2 p-4 flex justify-center">
+      <div className="card fonctionali animated"></div>
+    </div>
+    <div className="w-full md:w-1/2 p-4 flex flex-col justify-center items-center md:items-start text-center md:text-left space-y-4">
+      <h3 className="text-3xl font-bold text-hover-effect">Recherche</h3>
+      <p className="mt-2 text-lg text-hover-effect">
+        Description de la fonctionnalité 1. Détails supplémentaires sur cette fonctionnalité.
+      </p>
+      <p className="mt-2 text-lg text-hover-effect">
+        Plus d'informations ici pour rendre le texte plus riche.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section className="py-16 text-white bg-[#171925]">
+  <div className="container mx-auto flex flex-wrap items-center justify-center space-y-8">
+    <div className="w-full md:w-1/2 p-4 flex flex-col justify-center items-center md:items-start text-center md:text-left space-y-4 order-2 md:order-1">
+      <h3 className="text-3xl font-bold text-hover-effect">Gestion de votre collection</h3>
+      <p className="mt-2 text-lg text-hover-effect">
+        Description de la fonctionnalité 2. Détails supplémentaires sur cette fonctionnalité.
+      </p>
+      <p className="mt-2 text-lg text-hover-effect">
+        Information additionnelle.
+      </p>
+      <p className="mt-2 text-lg text-hover-effect">
+        Plus de détails.
+      </p>
+    </div>
+    <div className="w-full md:w-1/2 p-4 flex justify-center order-1 md:order-2">
+      <div className="card fonctionali1 animated"></div>
+    </div>
+  </div>
+</section>
+
+
+          <section className="py-16 text-center text-white">
+            <h2 className="text-3xl font-bold">Nos Futur licences !</h2>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8">
+              <div className="flex flex-col items-center">
+                <div className="card licence animated"></div>
+                <p className="mt-4 text-lg text-hover-effect">Description de la licence 1</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="card licence1 animated"></div>
+                <p className="mt-4 text-lg text-hover-effect">Description de la licence 2</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="card licence2 animated"></div>
+                <p className="mt-4 text-lg text-hover-effect">Description de la licence 3</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="card licence3 animated"></div>
+                <p className="mt-4 text-lg text-hover-effect">Description de la licence 4</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-16 text-center text-white">
+            <h2 className="text-3xl font-bold">Télécharger notre application !</h2>
+            <p className="mt-4 text-lg">Gérez votre collection de cartes Pokémon où que vous soyez.</p>
+            <div className="mt-8">
+              <Link href="/construction" className="px-4 py-2 bg-red-600 rounded hover:bg-red-700 text-white">
+                Télécharger
+              </Link>
+            </div>
+          </section>
+
           <section className="py-16 text-center text-white">
             <h2 className="text-3xl font-bold">Vidéos de Présentation</h2>
             <div className="video-grid px-4">
@@ -217,10 +229,11 @@ export default function Home() {
                   <iframe
                     width="100%"
                     height="315"
-                    src="https://www.youtube.com/embed/FQfBwSxqhVo"
+                    src="https://www.youtube.com/embed/FQfBwSxqhVo?lazy=1"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                   ></iframe>
                 </div>
               </div>
@@ -229,10 +242,11 @@ export default function Home() {
                   <iframe
                     width="100%"
                     height="315"
-                    src="https://www.youtube.com/embed/v-blzL0Q1oA"
-                    title="YouTube video player"                
+                    src="https://www.youtube.com/embed/v-blzL0Q1oA?lazy=1"
+                    title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                   ></iframe>
                 </div>
               </div>

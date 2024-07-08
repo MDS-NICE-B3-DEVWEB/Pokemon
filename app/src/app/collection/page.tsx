@@ -1,4 +1,3 @@
-// src/app/collection/page.tsx
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -134,6 +133,11 @@ const CollectionPage = () => {
 
   return (
     <ClientLayout>
+      <style jsx>{`
+        select, option {
+          color: black;
+        }
+      `}</style>
       <div className="min-h-screen flex flex-col items-center bg-[#302F45] p-4">
         <h1 className="text-3xl font-bold text-white mb-6">Ma Collection</h1>
         <div className="flex gap-4 mb-6">

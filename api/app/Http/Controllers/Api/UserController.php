@@ -28,42 +28,43 @@ class UserController extends Controller
                 'status_code' => 201,
                 'status_message' => 'Utilisateur enregistré avec succès',
                 'user' => $user,
-            ]);
-        } catch (Exception $e) {
+            ], 201);
+         } catch (Exception $e) {
             return response()->json([
                 'status_code' => 500,
                 'error' => 'Erreur lors de l\'enregistrement: ' . $e->getMessage()
-            ]);
+            ], 500);
         }
     }
 
     // Méthode pour la connexion des utilisateurs
     public function login(LogUserRequest $request)
-    {
-        try {
-            if (auth()->attempt($request->only('email', 'password'))) {
-                $user = Auth::user();
-                $token = $user->createToken('clefsecrete')->plainTextToken;
-                return response()->json([
-                    'status_code' => 200,
-                    'status_message' => 'Utilisateur connecté.',
-                    'user' => $user,
-                    'token' => $token,
-                ]);
-            } else {
-                return response()->json([
-                    'status_code' => 403,
-                    'status_message' => 'Informations non valides.',
-                ]);
-            }
-        } catch (Exception $e) {
+{
+    try {
+        if (auth()->attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+            $token = $user->createToken('clefsecrete')->plainTextToken;
             return response()->json([
-                'status_code' => 500,
-                'status_message' => 'Une erreur est survenue',
-                'error' => $e->getMessage()
-            ]);
+                'status_code' => 201,
+                'status_message' => 'Utilisateur connecté.',
+                'user' => $user,
+                'token' => $token,
+            ], 201); 
+        } else {
+            return response()->json([
+                'status_code' => 403,
+                'status_message' => 'Informations non valides.',
+            ], 403); 
         }
+    } catch (Exception $e) {
+        return response()->json([
+            'status_code' => 500,
+            'status_message' => 'Une erreur est survenue',
+            'error' => $e->getMessage()
+        ], 500); 
     }
+}
+
 
     public function assignRole(Request $request, User $user)
 {
@@ -72,7 +73,7 @@ class UserController extends Controller
 
     return response()->json([
         'message' => "Role '{$roleName}' assigned successfully to user {$user->email}"
-    ]);
+    ],201);
 }
 
 
@@ -98,9 +99,9 @@ public function deleteRole(Request $request, User $user)
     if ($user->hasRole($roleName)) {
         $user->removeRole($roleName); // Retirer le rôle spécifié
         return response()->json([
-            'status_code' => 200,
+            'status_code' => 201,
             'message' => "Rôle '{$roleName}' retiré avec succès de l'utilisateur {$user->email}.",
-        ], 200);
+        ], 201);
     } else {
         return response()->json([
             'status_code' => 404,

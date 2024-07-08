@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('card_collections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Assurez que la suppression d'un utilisateur entraîne la suppression de ses cartes
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Assure que la suppression d'un utilisateur entraîne la suppression de ses cartes
             $table->string('pokemon_card_id', 50)->index(); // Taille de champ spécifiée, ajustez selon les données de l'API
             $table->string('name', 255); // Nom de la carte Pokémon
             $table->timestamps(); // Timestamps pour enregistrer la création et la dernière modification des enregistrements
